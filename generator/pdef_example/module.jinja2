@@ -8,6 +8,13 @@
     {% endfor %}
     ],
 
+    "imported_definitions": [
+    {% for definition in module.imported_definitions %}
+        "{{ definition.name }}"{% if not loop.last %},{% endif %}
+        
+    {% endfor %}
+    ],
+
     "definitions": [
     {% for definition in module.definitions %}
         "{{ definition.name }}"{% if not loop.last %},{% endif %}
