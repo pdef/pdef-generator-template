@@ -8,6 +8,13 @@
     "exc": null,
 {% endif %}
 
+    "imported_definitions": [
+    {% for definition in interface.imported_definitions %}
+        "{{ definition.name }}"{% if not loop.last %},{% endif %}
+
+    {% endfor %}
+    ],
+
     "methods": [
     {% for method in interface.methods %}
         {

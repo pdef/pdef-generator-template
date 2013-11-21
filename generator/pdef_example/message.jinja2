@@ -14,6 +14,13 @@
     "discriminator_value": null,
 {% endif %}
 
+    "imported_definitions": [
+    {% for definition in message.imported_definitions %}
+        "{{ definition.name }}"{% if not loop.last %},{% endif %}
+
+    {% endfor %}
+    ],
+
     "subtypes": [
     {% for subtype in message.subtypes %}
         "{{ subtype|example_ref }}"{% if not loop.last %},{% endif %}

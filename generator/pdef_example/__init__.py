@@ -26,11 +26,12 @@ class ExampleGenerator(Generator):
         @param namespace    {pdef_module: language_module} name mapping,
                             for example, {"pdef.tests": "pdef_tests"}.
         '''
-        self.out = out
-        self.namespace = Namespace(namespace)
+        super(ExampleGenerator, self).__init__(out, namespace=namespace, **kwargs)
+
+        # Generator filters available in jinja templates.
+        self.filters = ExampleFilters(self.namespace)
 
         # Jinja templates relative to this file.
-        self.filters = ExampleFilters(self.namespace)
         self.templates = Templates(__file__, filters=self.filters)
 
     def generate(self, package):
