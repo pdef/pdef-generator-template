@@ -20,11 +20,6 @@
         {
             "name": "{{ method.name }}",
             "result": "{{ method.result|example_ref }}",
-            {% if method.exc %}
-            "exc": "{{ method.exc|example_ref }}",
-            {% else %}
-            "exc": null,
-            {% endif %}
             "is_post": {{ method.is_post|example_bool }},
             "args": [
             {% for arg in method.args %}
