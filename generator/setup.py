@@ -28,7 +28,7 @@ setup(
         'pdef-compiler'
     ],
     
-    # Replace with an actual entry point.
+    # Replace example with an actual generator name, it is used as generate-myname compiler command.
     entry_points={
         'pdefc.generators': [
             'example = pdef_example:ExampleGenerator',
