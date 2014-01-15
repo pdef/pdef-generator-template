@@ -25,8 +25,10 @@ setup(
     },
 
     install_requires=[
-        'pdefc>=1.0'
+        'pdef-compiler'
     ],
+    
+    # Replace with an actual entry point.
     entry_points={
         'pdefc.generators': [
             'example = pdef_example:ExampleGenerator',
@@ -34,7 +36,7 @@ setup(
     },
 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',

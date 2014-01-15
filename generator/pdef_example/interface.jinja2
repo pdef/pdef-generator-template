@@ -1,6 +1,6 @@
 {
     "type": "interface",
-    "name": "{{ interface.name }}",
+    "name": "{{ interface|example_name }}",
     "module": "{{ interface.module|example_module }}",
 {% if interface.exc %}
     "exc": "{{ interface.exc|example_ref }}",
@@ -10,8 +10,15 @@
 
     "imported_definitions": [
     {% for definition in interface.imported_definitions %}
-        "{{ definition.name }}"{% if not loop.last %},{% endif %}
+        "{{ definition|example_ref }}"{% if not loop.last %},{% endif %}
+        
+    {% endfor %}
+    ],
 
+    "referenced_types": [
+    {% for definition in interface.referenced_types %}
+        "{{ definition|example_ref }}"{% if not loop.last %},{% endif %}
+        
     {% endfor %}
     ],
 

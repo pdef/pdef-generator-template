@@ -1,6 +1,6 @@
 {
     "type": "message",
-    "name": "{{ message.name }}",
+    "name": "{{ message|example_name }}",
     "module": "{{ message.module|example_module }}",
     "is_exception": {{ message.is_exception|example_bool }},
 {% if message.base %}
@@ -16,8 +16,15 @@
 
     "imported_definitions": [
     {% for definition in message.imported_definitions %}
-        "{{ definition.name }}"{% if not loop.last %},{% endif %}
+        "{{ definition|example_ref }}"{% if not loop.last %},{% endif %}
 
+    {% endfor %}
+    ],
+
+    "referenced_types": [
+    {% for definition in message.referenced_types %}
+        "{{ definition|example_ref }}"{% if not loop.last %},{% endif %}
+        
     {% endfor %}
     ],
 

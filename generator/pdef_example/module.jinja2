@@ -1,6 +1,6 @@
 {
     "type": "module",
-    "name": "{{ module.name }}",
+    "name": "{{ module|example_module }}",
     "imported_modules": [
     {% for imported_module in module.imported_modules %}
         "{{ imported_module.name }}"{% if not loop.last %},{% endif %}
